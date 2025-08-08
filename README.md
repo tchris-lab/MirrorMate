@@ -1,3 +1,4 @@
+
 <img src="./docs/logo.png"> 
 
 ---
@@ -11,6 +12,9 @@
 - Docker registries  
 - Go module proxy  
 - Debian/Ubuntu APT repositories
+
+## Demo 
+![Demo](./docs/demo.gif)
 
 ---
 
@@ -129,3 +133,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 For questions, feature requests, or issues, please open an issue on GitHub:  
 [https://github.com/free-programmers/MirrorMate/issues](https://github.com/free-programmers/MirrorMate/issues)
+
