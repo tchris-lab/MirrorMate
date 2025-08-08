@@ -64,12 +64,14 @@ MIRRORS=(
     "Docker|Docker Hub - Hamravesh (Iran)|https://hub.hamdocker.ir/"
     "Docker|Docker Hub - IranServer (Iran)|https://docker.iranserver.com/"
     "Docker|Docker Hub - USTC (China)|https://docker.mirrors.ustc.edu.cn/"
+    "Docker|Docker Hub - MobinHost (Iran)|https://docker.mobinhost.com/"
 
     # Go
     "Go|GoProxy - goproxy.cn (China)|https://goproxy.cn,direct"
 
     # APT
     "APT|Ubuntu 24.04 - Tsinghua (China)|deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-updates main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-security main restricted universe multiverse"
+    "APT|Ubuntu 24.04 - MobinHost (Iran)|deb https://ubuntu.mobinhost.com/ubuntu/ noble main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-updates main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-security main restricted universe multiverse"
 )
 
 # =====================================================
