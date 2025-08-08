@@ -38,10 +38,17 @@
 ### From apt repositories
 
 ```bash
-sudo apt-get install mirrormate
+sudo apt-get install mirrormate # not implemented yet
 ```
 
-### Manually
+### Using Curl (Recommended)
+### Because MirrorMate requires an interactive terminal, running it directly with `curl | bash` can cause display issues. **Recommended: Download and run manually:**
+
+```bash
+curl -sSL https://github.com/free-programmers/MirrorMate/raw/main/script.sh -o mirrormate.sh && chmod +x mirrormate.sh && sudo ./mirrormate.sh
+```
+
+### Manually from git repo
 
 ```bash
 # Clone repository
