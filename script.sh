@@ -6,27 +6,7 @@ clear
 #  github: https://github.com/free-programmers/MirrorMate   
 # =====================================================
 
-cat <<'EOF'
-/*
-  _____                                                             
- |  ___| __ ___  ___                                                
- | |_ | '__/ _ \/ _ \                                               
- |  _|| | |  __/  __/                                               
- |_|__|_|  \___|\___|                                               
- |  _ \ _ __ ___   __ _ _ __ __ _ _ __ ___  _ __ ___   ___ _ __ ___ 
- | |_) | '__/ _ \ / _` | '__/ _` | '_ ` _ \| '_ ` _ \ / _ \ '__/ __|
- |  __/| | | (_) | (_| | | | (_| | | | | | | | | | | |  __/ |  \__ \
- |_|__ |_|  \___/ \__, |_|  \__,_|_| |_| |_|_| |_| |_|\___|_|  |___/
-  / _ \ _ __ __ _ |___/                                             
- | | | | '__/ _` |                                                  
- | |_| | | | (_| |                                                  
-  \___/|_|  \__, |                                                  
-            |___/                                                  
-github: https://github.com/free-programmers/MirrorMate                                 
-*/
-EOF
 
-sleep 2
 
 if [[ $EUID -ne 0 ]]; then
    echo "❌ Please run with sudo"
@@ -38,9 +18,32 @@ mkdir -p "$BACKUP_DIR"
 
 if ! command -v whiptail &>/dev/null; then
     echo "Installing whiptail..."
-    sleep 1
     apt-get update && apt-get install -y whiptail
 fi
+
+if ! command -v figlet &>/dev/null; then
+    echo "Installing figlet..."
+    apt-get update && apt-get install -y figlet
+fi
+
+if ! command -v lolcat &>/dev/null; then
+    echo "Installing lolcat..."
+    apt-get update
+    apt-get install -y ruby
+    gem install lolcat
+fi
+
+
+figlet -f standard MirrorMate | lolcat
+
+cat <<'EOF'
+/*
+    MirrorMate — Your new BFF for switching to the fastest open-source mirrors without breaking a sweat! 😎✨
+    github: https://github.com/free-programmers/MirrorMate                                 
+*/
+EOF
+
+sleep 6
 
 # =====================================================
 # Mirror list
@@ -49,14 +52,17 @@ fi
 MIRRORS=(
     # Python
     "Python|PyPI - Runflare (Iran)|https://mirror-pypi.runflare.com/simple"
-    "Python|PyPI - Mecan (AhmadRafiee)(Iran)|https://repo.mecan.ir/repository/pypi/"
     "Python|PyPI - Tsinghua (China)|https://pypi.tuna.tsinghua.edu.cn/simple"
     "Python|PyPI - Aliyun (China)|https://mirrors.aliyun.com/pypi/simple/"
+    "Python|PyPI - IranRepo (IR ICT) (Iran)| https://repo.ito.gov.ir/python/"
+    "Python|PyPI - Mecan (AhmadRafiee)(Iran)|https://repo.mecan.ir/repository/pypi/"
+
 
     # Node.js
     "Node.js|NPM - RunFlare (Iran)|https://mirror-npm.runflare.com"
     "Node.js|NPM - Tsinghua (China)|https://registry.npmmirror.com"
     "Node.js|NPM - Aliyun (China)|https://registry.npm.taobao.org"
+    "Node.js|NPM - IranRepo (IR ICT) (Iran)|https://repo.ito.gov.ir/npm/"
 
     # Docker
     "Docker|Docker Hub - Runflare (Iran)|https://mirror-docker.runflare.com"
@@ -67,12 +73,16 @@ MIRRORS=(
     "Docker|Docker Hub - MobinHost (Iran)|https://docker.mobinhost.com/"
 
     # Go
-    "Go|GoProxy - goproxy.cn (China)|https://goproxy.cn,direct"
+    "Go|GoProxy - Aliyun (China)|https://mirrors.aliyun.com/goproxy/"
 
     # APT
+    "APT|Ubuntu 24.04 - ArvanCloud (Iran)|deb http://mirror.arvancloud.ir/ubuntu/ noble main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-updates main restricted universe multiverse\ndeb http://mirror.arvancloud.ir/ubuntu/ noble-security main restricted universe multiverse"
     "APT|Ubuntu 24.04 - Tsinghua (China)|deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-updates main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-security main restricted universe multiverse"
     "APT|Ubuntu 24.04 - MobinHost (Iran)|deb https://ubuntu.mobinhost.com/ubuntu/ noble main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-updates main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-security main restricted universe multiverse"
+    "APT|Ubuntu 22.04 - IranRepo (IR ICT) (Iran)|deb https://repo.ito.gov.ir/ubuntu/ jammy main restricted universe multiverse\ndeb https://repo.ito.gov.ir/ubuntu jammy-updates main restricted universe multiverse\ndeb https://repo.ito.gov.ir/npm/ jammy-security main restricted universe multiverse"
+
 )
+
 
 # =====================================================
 # Generic backup
@@ -138,12 +148,12 @@ main_menu() {
     for entry in "${MIRRORS[@]}"; do
         IFS='|' read -r category _ _ <<< "$entry"
         if [[ ! " ${seen[*]} " =~ " ${category} " ]]; then
-            categories+=("$category" "$category mirrors")
+            categories+=("$category" "$category mirrors list")
             seen+=("$category")
         fi
     done
-    categories+=("restore" "Restore previous settings")
-    categories+=("quit" "Exit")
+    categories+=("Restore" "Restore previous settings")
+    categories+=("Quit" "Exit")
     whiptail --title "MirrorMate - Open Source Mirror Switcher" --menu "Select a category:" 20 70 10 "${categories[@]}" 3>&1 1>&2 2>&3
 }
 
@@ -181,8 +191,8 @@ restore_menu() {
 while true; do
     choice=$(main_menu) || exit 0
     case "$choice" in
-        quit) exit 0 ;;
-        restore)
+        Quit) exit 0 ;;
+        Restore)
             rchoice=$(restore_menu)
             case "$rchoice" in
                 all)
