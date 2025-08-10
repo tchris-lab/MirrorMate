@@ -32,6 +32,7 @@ if ! command -v lolcat &>/dev/null; then
     gem install lolcat
 fi
 
+clear
 figlet -f standard MirrorMate | lolcat
 cat <<'EOF'
 /*
@@ -39,7 +40,7 @@ cat <<'EOF'
     github: https://github.com/free-programmers/MirrorMate
 */
 EOF
-sleep 4
+sleep 2
 
 # =====================================================
 # Mirror list
