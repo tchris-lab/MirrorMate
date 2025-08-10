@@ -64,6 +64,7 @@ MIRRORS=(
 
     # Docker
     "Docker|Docker Hub - Runflare (Iran)|https://mirror-docker.runflare.com"
+    "Docker|Docker Hub - Focker (Iran)|https://focker.ir"
     "Docker|Docker Hub - ArvanCloud (Iran)|https://docker.arvancloud.ir/"
     "Docker|Docker Hub - Hamravesh (Iran)|https://hub.hamdocker.ir/"
     "Docker|Docker Hub - IranServer (Iran)|https://docker.iranserver.com/"
