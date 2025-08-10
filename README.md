@@ -1,4 +1,3 @@
-
 <img src="./docs/logo.png"> 
 
 ---
@@ -37,6 +36,36 @@
 
 ---
 
+## Mirrors
+| #  | Language | Mirror Name |
+|----|----------|-------------|
+| 1  | Python   | PyPI - Runflare (Iran) |
+| 2  | Python   | PyPI - Tsinghua (China) |
+| 3  | Python   | PyPI - Aliyun (China) |
+| 4  | Python   | PyPI - IranRepo (IR ICT) (Iran) |
+| 5  | Python   | PyPI - Mecan (AhmadRafiee) (Iran) |
+| 6  | Python   | PyPI - USTC (China) |
+| 7  | Python   | PyPI - Fastly (Global) |
+| 8  | Node.js  | NPM - RunFlare (Iran) |
+| 9  | Node.js  | NPM - Tsinghua (China) |
+| 10 | Node.js  | NPM - Aliyun (China) |
+| 11 | Node.js  | NPM - IranRepo (IR ICT) (Iran) |
+| 12 | Node.js  | NPM - Yarnpkg (Global) |
+| 13 | Docker   | Docker Hub - Runflare (Iran) |
+| 14 | Docker   | Docker Hub - ArvanCloud (Iran) |
+| 15 | Docker   | Docker Hub - Hamravesh (Iran) |
+| 16 | Docker   | Docker Hub - IranServer (Iran) |
+| 17 | Docker   | Docker Hub - USTC (China) |
+| 18 | Docker   | Docker Hub - MobinHost (Iran) |
+| 19 | Docker   | Docker Hub - Docker Official (Global) |
+| 20 | Go       | GoProxy - Aliyun (China) |
+| 21 | Go       | GoProxy - Golang Official (Global) |
+| 22 | APT      | Ubuntu 24.04 - ArvanCloud (Iran) |
+| 23 | APT      | Ubuntu 24.04 - Tsinghua (China) |
+| 24 | APT      | Ubuntu 24.04 - MobinHost (Iran) |
+| 25 | APT      | Ubuntu 22.04 - IranRepo (IR ICT) (Iran) |
+| 26 | APT      | Ubuntu 22.04 - Official (Global) |
+
 ## Installation
 
 ### From apt repositories
@@ -46,7 +75,7 @@ sudo apt-get install mirrormate # not implemented yet
 ```
 
 ### Using Curl (Recommended)
-### Because MirrorMate requires an interactive terminal, running it directly with `curl | bash` can cause display issues. **Recommended: Download and run manually:**
+Because MirrorMate requires an interactive terminal, running it directly with `curl | bash` can cause display issues. **Recommended: Download and run manually:**
 
 ```bash
 curl -sSL https://github.com/free-programmers/MirrorMate/raw/main/script.sh -o mirrormate.sh && chmod +x mirrormate.sh && sudo ./mirrormate.sh
@@ -133,4 +162,3 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 For questions, feature requests, or issues, please open an issue on GitHub:  
 [https://github.com/free-programmers/MirrorMate/issues](https://github.com/free-programmers/MirrorMate/issues)
-
