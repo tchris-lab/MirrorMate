@@ -78,11 +78,11 @@ MIRRORS=(
     "Go|GoProxy - Golang Official (Global)|https://proxy.golang.org"
 
     # APT
-    "APT|Ubuntu 24.04 - ArvanCloud (Iran)|deb http://mirror.arvancloud.ir/ubuntu/ noble main restricted universe multiverse\ndeb http://mirror.arvancloud.ir/ubuntu/ noble-updates main restricted universe multiverse\ndeb http://mirror.arvancloud.ir/ubuntu/ noble-security main restricted universe multiverse"
-    "APT|Ubuntu 24.04 - Tsinghua (China)|deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-updates main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-security main restricted universe multiverse"
-    "APT|Ubuntu 24.04 - MobinHost (Iran)|deb https://ubuntu.mobinhost.com/ubuntu/ noble main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-updates main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-security main restricted universe multiverse"
-    "APT|Ubuntu 22.04 - IranRepo (IR ICT) (Iran)|deb https://repo.ito.gov.ir/ubuntu/ jammy main restricted universe multiverse\ndeb https://repo.ito.gov.ir/ubuntu jammy-updates main restricted universe multiverse\ndeb https://repo.ito.gov.ir/ubuntu/ jammy-security main restricted universe multiverse"
-    "APT|Ubuntu 22.04 - Official (Global)|deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse\ndeb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe multiverse\ndeb http://archive.ubuntu.com/ubuntu jammy-security main restricted universe multiverse"
+    "APT|Ubuntu - ArvanCloud (Iran)|deb http://mirror.arvancloud.ir/ubuntu/ noble main restricted universe multiverse\ndeb http://mirror.arvancloud.ir/ubuntu/ noble-updates main restricted universe multiverse\ndeb http://mirror.arvancloud.ir/ubuntu/ noble-security main restricted universe multiverse"
+    "APT|Ubuntu - Tsinghua (China)|deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-updates main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-security main restricted universe multiverse"
+    "APT|Ubuntu - MobinHost (Iran)|deb https://ubuntu.mobinhost.com/ubuntu/ noble main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-updates main restricted universe multiverse\ndeb https://ubuntu.mobinhost.com/ubuntu/ noble-security main restricted universe multiverse"
+    "APT|Ubuntu - IranRepo (IR ICT) (Iran)|deb https://repo.ito.gov.ir/ubuntu/ jammy main restricted universe multiverse\ndeb https://repo.ito.gov.ir/ubuntu jammy-updates main restricted universe multiverse\ndeb https://repo.ito.gov.ir/ubuntu/ jammy-security main restricted universe multiverse"
+    "APT|Ubuntu - Official (Global)|deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse\ndeb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe multiverse\ndeb http://archive.ubuntu.com/ubuntu jammy-security main restricted universe multiverse"
 )
 
 
@@ -90,6 +90,7 @@ MIRRORS=(
 # Backup functions
 # =====================================================
 backup_config() {
+    back up mirros into $BACKUP_DIR
     category="$1"
     case "$category" in
         Python)
